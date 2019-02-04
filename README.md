@@ -6,11 +6,26 @@
 
 [ >> [Get started!](http://blynk-client.surge.sh) << ]
 
+## Build and install
+
+You have to install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/en/) to build client-app.
+
+Build procedure:
+```
+git clone --depth=1 https://github.com/avin/blynk-web-client.git
+cd ./blynk-web-client
+yarn
+yarn run build
+```
+
+Then copy content of `build` folder to your web-server.
+
 ## Features
 
 ### Ready widgets
 
 -   BUTTON
+-   STYLED_BUTTON
 -   SLIDER
 -   VERTICAL_SLIDER
 -   RGB
@@ -26,6 +41,7 @@
 -   STEP
 -   VERTICAL_STEP
 -   LED
+-   TABS
 
 ### Preview
 

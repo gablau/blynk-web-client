@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import cn from 'clsx';
 import styles from './styles.module.scss';
 import ButtonView from './Views/ButtonView/ButtonView';
 import SliderView from './Views/SliderView/SliderView';
@@ -15,9 +16,11 @@ import GaugeView from './Views/GaugeView/GaugeView';
 import LevelView from './Views/LevelView/LevelView';
 import StepView from './Views/StepView/StepView';
 import LedView from './Views/LedView/LedView';
+import TabsView from './Views/TabsView/TabsView';
 
 const WIDGET_VIEW_COMPONENTS = {
     BUTTON: ButtonView,
+    STYLED_BUTTON: ButtonView,
     SLIDER: SliderView,
     VERTICAL_SLIDER: VerticalSliderView,
     RGB: RgbView,
@@ -33,6 +36,7 @@ const WIDGET_VIEW_COMPONENTS = {
     STEP: StepView,
     VERTICAL_STEP: StepView,
     LED: LedView,
+    TABS: TabsView,
 };
 
 export class Widget extends React.Component {
@@ -45,13 +49,13 @@ export class Widget extends React.Component {
     render() {
         const { widget } = this.props;
 
-        const sizeHeightFactor = 60;
-        const sizeWidthFactor = 70;
+        const sizeHeightFactor = 70;
+        const sizeWidthFactor = 60;
         const margin = 1;
 
         return (
             <div
-                className={styles.root}
+                className={cn(styles.root, { [styles.tabsRoot]: widget.get('type') === 'TABS' })}
                 style={{
                     left: widget.get('x') * sizeWidthFactor,
                     top: widget.get('y') * sizeHeightFactor,
